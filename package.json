@@ -55,9 +55,13 @@
   },
   "devDependencies": {
     "concurrently": "^3.5.0",
-    "nodemon": "^1.11.0"
+    "husky": "^0.14.3",
+    "lint-staged": "^4.0.1",
+    "nodemon": "^1.11.0",
+    "prettier": "^1.5.2"
   },
   "scripts": {
+    "precommit": "lint-staged",
     "start": "concurrently \"node scripts/start.js\" \"nodemon src/server\"",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"
@@ -92,6 +96,16 @@
       "json",
       "web.jsx",
       "jsx"
+    ]
+  },
+  "lint-staged": {
+    "*.js": [
+      "node_modules/.bin/prettier --single-quote --no-semi --write",
+      "git add"
+    ],
+    "*.css": [
+      "node_modules/.bin/prettier --single-quote --no-semi --write",
+      "git add"
     ]
   },
   "babel": {
