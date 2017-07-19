@@ -3,10 +3,9 @@ import {
   ApolloProvider,
   createNetworkInterface
 } from 'react-apollo'
+import { BrowserRouter, Route } from 'react-router-dom'
 import React from 'react'
-import styleable from 'react-styleable'
 
-import css from './app.css'
 import Login from './login'
 
 class App extends React.Component {
@@ -20,13 +19,12 @@ class App extends React.Component {
   render() {
     return (
       <ApolloProvider client={this.createClient()}>
-        {/* TODO: extract to frame ui component */}
-        <div className={this.props.css.app}>
-          <Login />
-        </div>
+        <BrowserRouter>
+          <Route path="/" exact component={Login} />
+        </BrowserRouter>
       </ApolloProvider>
     )
   }
 }
 
-export default styleable(css)(App)
+export default App

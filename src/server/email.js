@@ -5,8 +5,8 @@ const ses = new AWS.SES()
 // TODO: validate email before this point
 const sendConfirm = (token, email) => {
   // prettier-ignore
-  // TODO: api host env var
-  const confirmLink = `http://localhost:3001/api/v1/login/confirm?email=${encodeURIComponent(email)}&token=${token}`
+  // TODO: ui host env var
+  const confirmLink = `http://localhost:3000/api/v1/login/confirm?email=${encodeURIComponent(email)}&token=${token}`
 
   const params = {
     Destination: {
