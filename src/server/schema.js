@@ -25,8 +25,18 @@ type LoginResponse {
   thing: String
 }
 
+type LoginConfirm {
+  email: String!
+  token: String!
+}
+type LoginConfirmResponse {
+  isSuccess: Boolean
+  message: String
+}
+
 type Mutation {
   login(email: String!): LoginResponse
+  loginConfirm(email: String!, token: String!): LoginConfirmResponse
 }
 `
 const schema = makeExecutableSchema({ typeDefs, resolvers })

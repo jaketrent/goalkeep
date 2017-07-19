@@ -4,13 +4,12 @@
   height: 100%;
 }
 .body {
-  padding: 1em;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 90%;
-  outline:1px solid blue;
+  padding: 1em;
 }
 .form {
   margin-top: 2em;
@@ -19,7 +18,7 @@
 .field {
   width: 100%;
 }
-.fieldLabel{
+.fieldLabel {
   composes: screenreaderOnly from "../common/styles/accessibility.css";
 }
 .fieldInput {

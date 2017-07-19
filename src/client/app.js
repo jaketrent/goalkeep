@@ -4,9 +4,11 @@ import {
   createNetworkInterface
 } from 'react-apollo'
 import { BrowserRouter, Route } from 'react-router-dom'
+import { CookiesProvider } from 'react-cookie'
 import React from 'react'
 
 import Login from './login'
+import LoginConfirm from './login/confirm'
 
 class App extends React.Component {
   createClient() {
@@ -18,11 +20,16 @@ class App extends React.Component {
   }
   render() {
     return (
-      <ApolloProvider client={this.createClient()}>
-        <BrowserRouter>
-          <Route path="/" exact component={Login} />
-        </BrowserRouter>
-      </ApolloProvider>
+      <CookiesProvider>
+        <ApolloProvider client={this.createClient()}>
+          <BrowserRouter>
+            <div>
+              <Route path="/" exact component={Login} />
+              <Route path="/login/confirm" exact component={LoginConfirm} />
+            </div>
+          </BrowserRouter>
+        </ApolloProvider>
+      </CookiesProvider>
     )
   }
 }
