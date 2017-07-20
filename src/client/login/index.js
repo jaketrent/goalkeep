@@ -1,11 +1,8 @@
 import { gql, graphql } from 'react-apollo'
 import React from 'react'
-import styleable from 'react-styleable'
 
-import css from './index.css'
 import Frame from '../common/ui/frame'
-import Avatar from '../common/ui/avatar'
-import Title from '../common/ui/title'
+import LoginForm from './form'
 
 class Login extends React.Component {
   constructor(props) {
@@ -23,34 +20,11 @@ class Login extends React.Component {
   render() {
     return (
       <Frame>
-        <form
-          className={this.props.css.login}
-          onSubmit={this.handleLoginSubmit}
-        >
-          <div className={this.props.css.body}>
-            <Title />
-            <div className={this.props.css.avatarFrame}>
-              <Avatar email={this.state.email} />
-            </div>
-            <div className={this.props.css.form}>
-              <label className={this.props.css.field} htmlFor="email">
-                <span className={this.props.css.fieldLabel}>email</span>
-                <input
-                  className={this.props.css.fieldInput}
-                  placeholder="email"
-                  name="email"
-                  id="email"
-                  type="text"
-                  value={this.state.email}
-                  onChange={this.handleFormChange}
-                />
-              </label>
-            </div>
-          </div>
-          <div className={this.props.css.buttons}>
-            <button className={this.props.css.btn}>login</button>
-          </div>
-        </form>
+        <LoginForm
+          onChange={this.handleFormChange}
+          onSubmit={this.handleFormSubmit}
+          values={this.state}
+        />
       </Frame>
     )
   }
@@ -63,4 +37,4 @@ export default graphql(gql`
       thing
     }
   }
-`)(styleable(css)(Login))
+`)(Login)
