@@ -7,6 +7,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import { CookiesProvider } from 'react-cookie'
 import React from 'react'
 
+import Goals from './goals'
 import Login from './login'
 import LoginConfirm from './login/confirm'
 
@@ -24,7 +25,8 @@ class App extends React.Component {
         <ApolloProvider client={this.createClient()}>
           <BrowserRouter>
             <div>
-              <Route path="/" exact component={Login} />
+              <Route path="/" exact component={Goals} />
+              <Route path="/login" exact component={Login} />
               <Route path="/login/confirm" exact component={LoginConfirm} />
             </div>
           </BrowserRouter>
