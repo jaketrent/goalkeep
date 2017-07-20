@@ -2,21 +2,17 @@
 
 .form {
   height: 100%;
+  font-size: 1.25em;
 }
 .body {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 90%;
-  padding: 1em;
+  height: 90vh;
 }
 .avatarFrame {
   margin: 2em 0 0 0;
-}
-.form {
-  margin-top: 2em;
-  font-size: 1.25em;
 }
 .field {
   width: 100%;
@@ -39,7 +35,7 @@
   position: fixed;
   bottom: 0;
   left: 0;
-  height: 10%;
+  height: 10vh;
   width: 100%;
   display: flex;
 }
@@ -48,4 +44,5 @@
   background: var(--colorsYellow);
   color: var(--colorsWhite);
   font-size: inherit;
+  border: 0;
 }

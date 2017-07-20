@@ -4,11 +4,7 @@ import React from 'react'
 import Authed from '../common/ui/authed'
 import Frame from '../common/ui/frame'
 
-class Login extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = { email: '' }
-  }
+class Goals extends React.Component {
   render() {
     return (
       <Authed>
@@ -18,6 +14,7 @@ class Login extends React.Component {
   }
 }
 
+// TODO: real query for goals
 export default graphql(gql`
   query channels {
     channels {
@@ -25,4 +22,4 @@ export default graphql(gql`
       name
     }
   }
-`)(Login)
+`)(Goals)

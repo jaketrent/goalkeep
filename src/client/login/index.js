@@ -1,7 +1,6 @@
 import { gql, graphql } from 'react-apollo'
 import React from 'react'
 
-import Frame from '../common/ui/frame'
 import LoginForm from './form'
 
 class Login extends React.Component {
@@ -17,17 +16,12 @@ class Login extends React.Component {
     evt.preventDefault()
     this.props.mutate({ variables: { email: this.state.email } })
   }
-  render() {
-    return (
-      <Frame>
-        <LoginForm
-          onChange={this.handleFormChange}
-          onSubmit={this.handleFormSubmit}
-          values={this.state}
-        />
-      </Frame>
-    )
-  }
+  render = _ =>
+    <LoginForm
+      onChange={this.handleFormChange}
+      onSubmit={this.handleFormSubmit}
+      values={this.state}
+    />
 }
 
 export default graphql(gql`

@@ -3,7 +3,7 @@ import {
   ApolloProvider,
   createNetworkInterface
 } from 'react-apollo'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { CookiesProvider } from 'react-cookie'
 import React from 'react'
 
@@ -24,11 +24,11 @@ class App extends React.Component {
       <CookiesProvider>
         <ApolloProvider client={this.createClient()}>
           <BrowserRouter>
-            <div>
+            <Switch>
               <Route path="/" exact component={Goals} />
               <Route path="/login" exact component={Login} />
               <Route path="/login/confirm" exact component={LoginConfirm} />
-            </div>
+            </Switch>
           </BrowserRouter>
         </ApolloProvider>
       </CookiesProvider>

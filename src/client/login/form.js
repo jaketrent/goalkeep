@@ -3,6 +3,7 @@ import styleable from 'react-styleable'
 
 import Avatar from '../common/ui/avatar'
 import css from './form.css'
+import Spacer from '../common/ui/spacer'
 import Title from '../common/ui/title'
 
 export default styleable(css)(props =>
@@ -12,7 +13,7 @@ export default styleable(css)(props =>
       <div className={props.css.avatarFrame}>
         <Avatar email={props.values.email} />
       </div>
-      <div className={props.css.form}>
+      <Spacer>
         <label className={props.css.field} htmlFor="email">
           <span className={props.css.fieldLabel}>email</span>
           <input
@@ -25,7 +26,7 @@ export default styleable(css)(props =>
             onChange={props.onChange}
           />
         </label>
-      </div>
+      </Spacer>
     </div>
     <div className={props.css.buttons}>
       <button className={props.css.btn}>login</button>
