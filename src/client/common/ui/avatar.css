@@ -1,0 +1,19 @@
+.avatar {
+  height: 150px;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.img {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 1400ms 500ms;
+}
+.imgValid {
+  composes: img;
+  opacity: 1;
+}
