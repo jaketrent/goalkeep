@@ -31,6 +31,7 @@ const sendConfirm = (token, email) => {
     ReturnPath: process.env.EMAIL_FROM,
     Source: process.env.EMAIL_FROM
   }
+  return Promise.resolve() // TODO: rm for real email send
   return ses.sendEmail(params).promise()
 }
 

@@ -21,8 +21,8 @@ type Login {
   email: String!
 }
 type LoginResponse {
+  isSuccess: Boolean
   email: String
-  thing: String
 }
 
 type LoginConfirm {
