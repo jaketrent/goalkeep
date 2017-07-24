@@ -5,8 +5,7 @@ const ses = new AWS.SES()
 // TODO: validate email before this point
 const sendConfirm = (token, email) => {
   // prettier-ignore
-  // TODO: ui host env var
-  const confirmLink = `http://localhost:3000/login/confirm?email=${encodeURIComponent(email)}&token=${token}`
+  const confirmLink = `${process.env.CLIENT_HOST}/login/confirm?email=${encodeURIComponent(email)}&token=${token}`
 
   const params = {
     Destination: {
@@ -31,7 +30,6 @@ const sendConfirm = (token, email) => {
     ReturnPath: process.env.EMAIL_FROM,
     Source: process.env.EMAIL_FROM
   }
-  return Promise.resolve() // TODO: rm for real email send
   return ses.sendEmail(params).promise()
 }
 
