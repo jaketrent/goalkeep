@@ -10,6 +10,7 @@
     "babel-eslint": "7.2.3",
     "babel-jest": "20.0.3",
     "babel-loader": "7.0.0",
+    "babel-plugin-transform-inline-environment-variables": "^0.1.1",
     "babel-preset-react-app": "^3.0.1",
     "babel-runtime": "6.23.0",
     "body-parser": "^1.17.2",
@@ -122,6 +123,9 @@
     ]
   },
   "babel": {
+    "plugins": [
+      "transform-inline-environment-variables"
+    ],
     "presets": [
       "react-app"
     ]

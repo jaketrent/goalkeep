@@ -15,7 +15,7 @@ class App extends React.Component {
   createClient() {
     return new ApolloClient({
       networkInterface: createNetworkInterface({
-        uri: 'http://localhost:3001/graphql'
+        uri: `${process.env.API_HOST}/graphql`
       })
     })
   }
