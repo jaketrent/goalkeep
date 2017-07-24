@@ -75,6 +75,10 @@
     "test": "node scripts/test.js --env=jsdom",
     "deploy:client": "npm run build && aws s3 sync build/ s3://goalkeep"
   },
+  "engines": {
+    "node": "8.x",
+    "npm": "5.x"
+  },
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}"
