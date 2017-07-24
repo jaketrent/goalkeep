@@ -72,7 +72,8 @@
     "precommit": "lint-staged",
     "start": "concurrently \"node scripts/start.js\" \"nodemon src/server\"",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "deploy:client": "npm run build && aws s3 sync build/ s3://goalkeep"
   },
   "jest": {
     "collectCoverageFrom": [
