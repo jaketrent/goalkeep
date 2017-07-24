@@ -4,11 +4,11 @@ import styleable from 'react-styleable'
 
 import css from './spacer.css'
 
-const formatClassNames = props =>
+const formatClassName = props =>
   classNames({ [props.css.spacer]: true, [props.className]: props.className })
 
 export default styleable(css)(props =>
-  <div className={props.css.spacer}>
+  <div className={formatClassName(props)}>
     {props.children}
   </div>
 )

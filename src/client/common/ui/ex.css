@@ -1,0 +1,64 @@
+/* adapted from https://codepen.io/haniotis/pen/KwvYLO */
+:root {
+  --colorRed: red;
+  --motionCurve: cubic-bezier(0.650, 0.000, 0.450, 1.000);
+}
+
+.exCircle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: var(--colorRed);
+  fill: none;
+  animation: stroke .6s var(--motionCurve) forwards;
+}
+
+.ex {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 2;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  margin: 10% auto;
+  box-shadow: inset 0px 0px 0px var(--colorRed);
+  animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+}
+
+.exEx {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+}
+.exEx1 {
+  composes: exEx;
+  animation: stroke .3s var(--motionCurve) .8s forwards;
+}
+.exEx2 {
+  composes: exEx;
+  animation: stroke .3s var(--motionCurve) 1.1s forwards;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes scale {
+  0%,
+  100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+
+@keyframes fill {
+  100% {
+    box-shadow: inset 0px 0px 0px 30px var(--colorRed);
+  }
+}

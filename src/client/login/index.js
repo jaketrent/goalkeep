@@ -3,6 +3,7 @@ import React from 'react'
 
 import FullCenter from '../common/ui/full-center'
 import Success from '../common/ui/success'
+import Error from '../common/ui/error'
 import LoginForm from './form'
 
 class Login extends React.Component {
@@ -33,7 +34,9 @@ class Login extends React.Component {
                 .email}.  Confirm your email to login.`}
             />
           </FullCenter>
-        : 'fail msg'
+        : <FullCenter>
+            <Error message={`Failure. Email not sent. Try again later.`} />
+          </FullCenter>
       : <LoginForm
           onChange={this.handleFormChange}
           onSubmit={this.handleFormSubmit}
