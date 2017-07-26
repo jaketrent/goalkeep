@@ -11,7 +11,7 @@ const app = express()
 const corsWhitelist = process.env.CORS_WHITELIST.split(',')
 const corsOptions = {
   origin(origin, done) {
-    return corsWhitelist.includes(origin)
+    return origin === 'https://goalkeep.jaketrent.com' //corsWhitelist.includes(origin)
       ? done(null, true)
       : done(new Error('CORS Origin no-no'))
   }
