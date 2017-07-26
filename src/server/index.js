@@ -9,12 +9,12 @@ const { schema } = require('./schema')
 
 const app = express()
 const corsWhitelist = process.env.CORS_WHITELIST.split(',')
+console.log('corsWhitelist', corsWhitelist)
 const corsOptions = {
   origin(origin, done) {
-    console.log('origin', origin)
-    return origin === 'https://goalkeep.jaketrent.com' //corsWhitelist.includes(origin)
+    return corsWhitelist.includes(origin)
       ? done(null, true)
-      : done(new Error('CORS Origin no-no'))
+      : done(new Error(`Origin ${origin} not allowed`))
   }
 }
 
