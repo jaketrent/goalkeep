@@ -1,3 +1,4 @@
+// @flow
 import { gql, graphql } from 'react-apollo'
 import React from 'react'
 
@@ -7,15 +8,16 @@ import Error from '../common/ui/error'
 import LoginForm from './form'
 
 class Login extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = { email: '' }
+  state: {
+    email: number,
+    isResponded: boolean,
+    isSuccess: boolean
   }
-  handleFormChange = evt => {
-    const target = evt.target
+  state = { email: '', isResponded: false, isSuccess: false }
+  handleFormChange = ({ target }: SyntheticInputEvent) => {
     this.setState(_ => ({ [target.name]: target.value }))
   }
-  handleFormSubmit = async evt => {
+  handleFormSubmit = async (evt: SyntheticEvent) => {
     evt.preventDefault()
     const res = await this.props.mutate({
       variables: { email: this.state.email }

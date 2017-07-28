@@ -63,8 +63,10 @@
     "whatwg-fetch": "2.0.3"
   },
   "devDependencies": {
+    "babel-preset-flow": "^6.23.0",
     "concurrently": "^3.5.0",
     "cross-env": "^5.0.1",
+    "flow-bin": "^0.51.0",
     "husky": "^0.14.3",
     "lint-staged": "^4.0.1",
     "nodemon": "^1.11.0",
@@ -72,6 +74,7 @@
   },
   "scripts": {
     "precommit": "lint-staged",
+    "flow": "flow",
     "start": "concurrently \"node scripts/start.js\" \"nodemon src/server\"",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
@@ -128,6 +131,7 @@
       "transform-inline-environment-variables"
     ],
     "presets": [
+      "flow",
       "react-app"
     ]
   },
