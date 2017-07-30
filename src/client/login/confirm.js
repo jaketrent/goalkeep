@@ -1,6 +1,8 @@
 // @flow
 import type { OperationComponent } from 'react-apollo'
 
+import type { Cookies } from '../common/types'
+
 import { gql, graphql } from 'react-apollo'
 import qs from 'qs'
 import React from 'react'
@@ -31,7 +33,7 @@ type MutateResponse = {
 
 class LoginConfirm extends React.Component {
   props: {
-    cookies: { set: (string, string, { path: string }) => void },
+    cookies: Cookies,
     mutate: MutateRequest => MutateResponse,
     location: { search: string }
   }

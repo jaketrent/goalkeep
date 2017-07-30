@@ -1,3 +1,6 @@
+// @flow
+import type { Styleable } from '../types'
+
 import Gravatar from 'react-gravatar'
 import isValidEmail from 'is-valid-email'
 import React from 'react'
@@ -5,7 +8,9 @@ import styleable from 'react-styleable'
 
 import css from './avatar.css'
 
-export default styleable(css)(props =>
+type Props = Styleable & { email: string }
+
+export default styleable(css)((props: Props) =>
   <div className={props.css.avatar}>
     <Gravatar
       email={props.email}

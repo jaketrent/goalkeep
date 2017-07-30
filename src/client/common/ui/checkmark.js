@@ -1,9 +1,12 @@
+// @flow
+import type { Styleable } from '../types'
+
 import React from 'react'
 import styleable from 'react-styleable'
 
 import css from './checkmark.css'
 
-export default styleable(css)(props =>
+export default styleable(css)((props: Styleable) =>
   <svg
     className={props.css.checkmark}
     xmlns="http://www.w3.org/2000/svg"
