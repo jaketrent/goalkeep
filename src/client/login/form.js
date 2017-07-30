@@ -1,3 +1,4 @@
+// @flow
 import React from 'react'
 import styleable from 'react-styleable'
 
@@ -6,7 +7,14 @@ import css from './form.css'
 import Spacer from '../common/ui/spacer'
 import Title from '../common/ui/title'
 
-export default styleable(css)(props =>
+type Props = {
+  css: { [string]: string },
+  onSubmit: SyntheticEvent => void,
+  values: { [string]: any },
+  onChange: SyntheticEvent => void
+}
+
+export default styleable(css)((props: Props) =>
   <form className={props.css.form} onSubmit={props.onSubmit}>
     <div className={props.css.body}>
       <Title />
