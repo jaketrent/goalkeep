@@ -5,6 +5,8 @@ const cors = require('cors')
 const express = require('express')
 const { graphqlExpress, graphiqlExpress } = require('graphql-server-express')
 
+const db = require('./db')
+console.log('db', db)
 const { schema } = require('./schema')
 
 const app = express()
