@@ -75,6 +75,8 @@
     "prettier": "^1.5.2"
   },
   "scripts": {
+    "db:migrate": "knex migrate:latest",
+    "db:rollback": "knex migrate:rollback",
     "precommit": "lint-staged",
     "flow": "flow",
     "start": "concurrently \"node scripts/start.js\" \"nodemon src/server\"",
