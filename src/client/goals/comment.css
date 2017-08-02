@@ -1,0 +1,10 @@
+.comment {
+  display: flex;
+  font-size: 0.875em;
+  color: #555;
+}
+.commentAvatar {
+  margin-right: 6px;
+}
+.commentDesc {
+}

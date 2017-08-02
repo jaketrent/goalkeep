@@ -40,7 +40,7 @@ const Quarters = (props: Props) =>
         onClick={props.onClick}
         name={`quarter-${q}`}
       >
-        {q}
+        Q{q}
       </button>
     )}
   </div>
