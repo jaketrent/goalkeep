@@ -83,7 +83,8 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "deploy:client": "cross-env NODE_ENV=production npm run build && aws s3 sync build/ s3://goalkeep",
-    "deploy:server": "git push heroku master"
+    "deploy:server": "git push heroku master",
+    "heroku-postbuild": "npm run db:migrate"
   },
   "engines": {
     "node": "8.x",
