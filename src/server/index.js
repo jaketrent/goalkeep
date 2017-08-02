@@ -6,12 +6,10 @@ const express = require('express')
 const { graphqlExpress, graphiqlExpress } = require('graphql-server-express')
 
 const db = require('./db')
-console.log('db', db)
 const { schema } = require('./schema')
 
 const app = express()
 const corsWhitelist = process.env.CORS_WHITELIST.split(',')
-console.log('corsWhitelist', corsWhitelist)
 const corsOptions = {
   origin(origin, done) {
     return corsWhitelist.includes(origin)

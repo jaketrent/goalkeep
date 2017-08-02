@@ -16,7 +16,7 @@ const resolvers = {
   Mutation: {
     login: async (root, args) => {
       try {
-        const user = users.create(args.email)
+        const user = await users.create(args.email)
         await email.sendConfirm(user.token, user.email)
         return { isSuccess: true, email: args.email }
       } catch (err) {
