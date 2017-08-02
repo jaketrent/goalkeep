@@ -23,9 +23,7 @@ class Login extends React.Component {
       variables: { email: this.state.email }
     })
     const isSuccess = res.data.login.isSuccess
-    if (isSuccess) {
-      this.setState(_ => ({ isResponded: true, isSuccess }))
-    }
+    this.setState(_ => ({ isResponded: true, isSuccess }))
   }
   render = _ =>
     this.state.isResponded
