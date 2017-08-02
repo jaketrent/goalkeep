@@ -9,7 +9,7 @@ import css from './comment.css'
 
 type Props = Styleable & { comment: Comment }
 
-export default styleable(css)(props =>
+export default styleable(css)((props: Props) =>
   <div className={props.css.comment}>
     <div className={props.css.commentAvatar}>
       <Avatar email={props.comment.email} size="small" />

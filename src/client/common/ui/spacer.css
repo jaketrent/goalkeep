@@ -1,3 +1,6 @@
 .spacer {
   padding: 20px;
 }
+.spacerHorz {
+  padding: 0 20px;
+}

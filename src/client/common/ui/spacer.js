@@ -12,8 +12,14 @@ type Props = Styleable & {
   children: React$Element<any>
 }
 
-const formatClassName = props =>
-  classNames({ [props.css.spacer]: true, [props.className]: props.className })
+const formatClassName = (props, className = props.css.spacer) =>
+  classNames({ [className]: true, [props.className]: props.className })
+
+export const HorzSpacer = styleable(css)((props: Props) =>
+  <div className={formatClassName(props, props.css.spacerHorz)}>
+    {props.children}
+  </div>
+)
 
 export default styleable(css)((props: Props) =>
   <div className={formatClassName(props)}>
