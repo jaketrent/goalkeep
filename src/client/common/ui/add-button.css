@@ -6,11 +6,20 @@
   align-items: center;
   color: var(--colorsWhite);
   background-color: var(--colorsYellow);
-  height: 30px;
-  width: 30px;
   border: 0;
   border-radius: 50%;
   cursor: pointer;
+  line-height: 100%;
+}
+.addButton--small {
+  height: 30px;
+  width: 30px;
+  font-size: 16px;
+}
+.addButton--large {
+  height: 60px;
+  width: 60px;
+  font-size: 28px;
 }
 .addButton:hover,
 .addButton:active,

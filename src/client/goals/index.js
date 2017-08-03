@@ -7,6 +7,7 @@ import React from 'react'
 import Authed from '../common/ui/authed'
 import Frame from '../common/ui/frame'
 import GoalsList from './list'
+import NewGoal from './new-goal'
 import PeriodPicker from './period-picker'
 
 const tempGoals: Goal[] = [
@@ -54,6 +55,7 @@ class Goals extends React.Component {
             onClick={this.handlePeriodPickerClick}
           />
           <GoalsList goals={this.state.goals} />
+          <NewGoal />
         </Frame>
       </Authed>
     )
