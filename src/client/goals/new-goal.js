@@ -1,17 +1,15 @@
 // @flow
-import type { Goal } from '../common/types'
-
+import { Link } from 'react-router-dom'
 import React from 'react'
 import styleable from 'react-styleable'
 
 import AddButton from '../common/ui/add-button'
 import css from './new-goal.css'
-import { HorzSpacer } from '../common/ui/spacer'
 
 const NewGoal = styleable(css)(props =>
-  <div className={props.css.newGoal}>
+  <Link to="/new" className={props.css.newGoal}>
     <AddButton onClick={props.onClick} size="large" />
-  </div>
+  </Link>
 )
 
 class NewGoalContainer extends React.Component {
