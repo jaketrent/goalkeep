@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { CookiesProvider } from 'react-cookie'
 import React from 'react'
 
+import NewGoal from './new-goal'
 import Goals from './goals'
 import Login from './login'
 import LoginConfirm from './login/confirm'
@@ -26,6 +27,7 @@ class App extends React.Component {
           <BrowserRouter>
             <Switch>
               <Route path="/" exact component={Goals} />
+              <Route path="/new" exact component={NewGoal} />
               <Route path="/login" exact component={Login} />
               <Route path="/login/confirm" exact component={LoginConfirm} />
             </Switch>
