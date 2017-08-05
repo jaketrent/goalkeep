@@ -1,11 +1,13 @@
 const AWS = require('aws-sdk')
 
+const config = require('./config')
+
 const ses = new AWS.SES()
 
 // TODO: validate email before this point
 const sendConfirm = (token, email) => {
   // prettier-ignore
-  const confirmLink = `${process.env.CLIENT_HOST}/login/confirm?email=${encodeURIComponent(email)}&token=${token}`
+  const confirmLink = `${config.clientHost}/login/confirm?email=${encodeURIComponent(email)}&token=${token}`
 
   const params = {
     Destination: {
@@ -27,8 +29,8 @@ const sendConfirm = (token, email) => {
         Data: 'Verify your email address to use goalkeep'
       }
     },
-    ReturnPath: process.env.EMAIL_FROM,
-    Source: process.env.EMAIL_FROM
+    ReturnPath: config.emailFrom,
+    Source: config.emailFrom
   }
   return ses.sendEmail(params).promise()
 }
