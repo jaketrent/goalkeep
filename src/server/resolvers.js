@@ -1,6 +1,8 @@
+// @flow
 const email = require('./email')
 const users = require('./users')
 
+// TODO: temp, rm
 const channels = [
   {
     id: 1,
@@ -11,10 +13,10 @@ const channels = [
 
 const resolvers = {
   Query: {
-    channels: _ => channels
+    channels: () => channels
   },
   Mutation: {
-    login: async (root, args) => {
+    login: async (_: any, args: { email: string }) => {
       try {
         const user = await users.create(args.email)
         await email.sendConfirm(user.token, user.email)
@@ -24,7 +26,7 @@ const resolvers = {
         return { isSuccess: false }
       }
     },
-    loginConfirm: async (root, args) => {
+    loginConfirm: async (_: any, args: { email: string, token: string }) => {
       try {
         await users.confirm(args.email, args.token)
         return { isSuccess: true, message: 'Login confirmed' }

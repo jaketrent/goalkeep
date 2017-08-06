@@ -1,3 +1,4 @@
+// @flow
 const AWS = require('aws-sdk')
 
 const config = require('./config')
@@ -5,7 +6,7 @@ const config = require('./config')
 const ses = new AWS.SES()
 
 // TODO: validate email before this point
-const sendConfirm = (token, email) => {
+const sendConfirm = (token: string, email: string) => {
   // prettier-ignore
   const confirmLink = `${config.clientHost}/login/confirm?email=${encodeURIComponent(email)}&token=${token}`
 

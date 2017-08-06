@@ -6,6 +6,6 @@ const pgConfig: Knex$PostgresConfig = {
   connection: config.databaseUrl
 }
 
-const pg = require('knex')(pgConfig)
+const pg: Knex$Knex = require('knex')(pgConfig)
 
 module.exports = pg

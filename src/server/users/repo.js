@@ -1,6 +1,17 @@
+// @flow
 const util = require('util')
 
-const create = async (db, { email, token }) => {
+export type UserSeed = {
+  email: string,
+  token: string
+}
+
+export type User = UserSeed
+
+const create = async (
+  db: Knex$Knex,
+  { email, token }: UserSeed
+): Promise<User> => {
   const insert = db('users').insert({ email, token }).toString()
 
   const update = db('users')
@@ -13,9 +24,11 @@ const create = async (db, { email, token }) => {
   )
 
   await db.raw(query)
+  return { email, token }
 }
 
-const find = async (db, { email, token }) => {
+// TODO: how to flowtype Promise<User>?
+const find = async (db: Knex$Knex, { email, token }: User): any => {
   return await db('users').where({ email, token })
 }
 
