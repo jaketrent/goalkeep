@@ -139,13 +139,15 @@ declare class Knex$Knex {
 
 declare type Knex$PostgresConfig = {
   client?: 'pg',
-  connection?: {
-    host?: string,
-    user?: string,
-    password?: string,
-    database?: string,
-    charset?: string
-  },
+  connection?:
+    | string
+    | {
+        host?: string,
+        user?: string,
+        password?: string,
+        database?: string,
+        charset?: string
+      },
   searchPath?: string
 }
 
