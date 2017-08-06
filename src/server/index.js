@@ -1,7 +1,7 @@
 // @flow
 const config = require('./config')
 
-const bodyParser = require('body-parser')
+const bodyParser: bodyParser = require('body-parser')
 const cors = require('cors')
 const express = require('express')
 const { graphqlExpress, graphiqlExpress } = require('graphql-server-express')
@@ -9,7 +9,7 @@ const { graphqlExpress, graphiqlExpress } = require('graphql-server-express')
 const db = require('./db')
 const { schema } = require('./schema')
 
-const app = express()
+const app: express$Application = express()
 const corsOptions = {
   origin(origin, done) {
     return config.corsWhitelist.includes(origin)
